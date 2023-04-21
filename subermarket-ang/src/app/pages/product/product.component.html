@@ -1,0 +1,16 @@
+<div class="row mt-4">
+        <div class="col-12 col-md-4" *ngFor ="let item of posts ">
+                <div class="card">
+                        <div class="card-body">
+                            
+                               <h3>{{ item.product_name}}</h3>
+                                <h3>{{ item.product_price}}</h3>
+                                <button class="btn btn-primary" routerLink="/product/single/{{item._id}}"> 
+                                        show product </button>
+                        </div>
+                </div>
+        </div>
+
+
+
+</div>

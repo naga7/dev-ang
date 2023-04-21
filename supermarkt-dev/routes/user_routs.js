@@ -1,0 +1,16 @@
+
+const router = require("express").Router()
+const auth =require("../app/middelware/autoraization_user")
+const upload = require("../app/middelware/upload.middleware")
+const user_controller = require("../app/controllr/user_control")
+router.get("/",user_controller.all)
+router.post("/register",user_controller.register)
+router.get("/single/:id",auth,user_controller.single)
+router.get("/delete_account/:id",auth,user_controller.delete_account)
+router.get("/edit_account/:id",auth,user_controller.edit_account)
+router.post("/login_account",user_controller.login_user)
+router.get("/profile",auth,user_controller.userprofile)
+router.patch("/updatePImg", auth, upload.single("img"), user_controller.updatePimg)
+router.get("/logout",auth,user_controller.logOut)
+router.get("/logoutall",auth,user_controller.logOutAll)
+module.exports= router
